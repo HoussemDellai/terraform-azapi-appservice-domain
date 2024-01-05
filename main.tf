@@ -6,7 +6,7 @@ resource "azapi_resource" "appservice_domain" {
   parent_id                 = var.resource_group_id
   location                  = "global"
   schema_validation_enabled = true
-  response_export_values = ["properties.id"]
+  response_export_values    = ["*"] # ["id", "name", "properties.nameServers"]
 
   body = jsonencode({
 
