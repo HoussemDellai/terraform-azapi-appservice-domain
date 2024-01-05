@@ -1,4 +1,4 @@
-output "custom_domain_name" {
+output "appservice_domain_name" {
   value = module.appservice_domain.appservice_domain_name
 }
 
