@@ -29,9 +29,7 @@ The complete Terraform implementation is in this current folder.
 
 Here is a Youtube video explaining how this works: [https://www.youtube.com/watch?v=ptdAcsG2ROI](https://www.youtube.com/watch?v=ptdAcsG2ROI)
 
-<a href="https://www.youtube.com/watch?v=ptdAcsG2ROI">
 ![](https://github.com/HoussemDellai/terraform-azapi-appservice-domain/blob/main/images/youtube.png?raw=true)
-</a>
 
 ## How to use it
 
