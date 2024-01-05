@@ -1,5 +1,5 @@
 output "custom_domain_name" {
-  value = module.appservice_domain.custom_domain_name
+  value = module.appservice_domain.appservice_domain_name
 }
 
 output "app_service_domain_id" {

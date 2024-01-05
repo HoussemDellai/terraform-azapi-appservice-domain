@@ -1,4 +1,4 @@
-output "custom_domain_name" {
+output "appservice_domain_name" {
   value = jsondecode(azapi_resource.appservice_domain.output).name
 }
 
