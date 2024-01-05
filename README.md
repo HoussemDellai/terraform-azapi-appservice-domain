@@ -1,7 +1,5 @@
 # Azure App Service Domain module for Terraform
 
-# Azure App Service Domain in Terraform
-
 ## Problem
 
 You can create a custom domain name in Azure using App Service Domain service.
@@ -104,7 +102,7 @@ terraform apply tfplan
 
 Verify you have two resources created within the resource group.
 
-<img src="images/resources.png">
+<img src="https://github.com/HoussemDellai/terraform-azapi-appservice-domain/blob/main/images/resources.png?raw=true">
 
 Verify that custom domain name works.
 You should see the IP address we used in A record which is `1.2.3.4`.
@@ -123,7 +121,7 @@ nslookup test.<var.domain_name> # replace with domain name
 In this lab we used Terraform to create the domain name.
 But still you can just use Azure portal or command line.
 
-<img src="images/portal.png">
+<img src="https://github.com/HoussemDellai/terraform-azapi-appservice-domain/blob/main/images/portal.png?raw=true">
 
 Make sure you fill the `contact_info.json` file. It is required to create domain name.
 
