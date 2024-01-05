@@ -1,6 +1,7 @@
 module "appservice_domain" {
-  source = "../."                                    # if calling module from local machine
-  # source = "HoussemDellai/appservice-domain/azapi" # if calling module from Terraform Registry
+  # source = "../."                                    # if calling module from local machine
+  source  = "HoussemDellai/appservice-domain/azapi" # if calling module from Terraform Registry
+  version = "1.0.2"                                 # if calling module from Terraform Registry
 
   providers = {
     azapi = azapi
