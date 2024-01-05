@@ -66,7 +66,7 @@ module "appservice_domain" {
   dns_zone_id        = azurerm_dns_zone.dns_zone.id
 
   agreedby_ip_v6    = "2a04:cec0:11d9:24c8:8898:3820:8631:d83"
-  agreedat_datetime = "2023-08-10T11:50:59.264Z"
+  agreedat_datetime = "2024-01-01T9:00:00.000Z"
 
   contact = {
     nameFirst = "FirstName"
