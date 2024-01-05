@@ -123,7 +123,7 @@ But still you can just use Azure portal or command line.
 
 <img src="https://github.com/HoussemDellai/terraform-azapi-appservice-domain/blob/main/images/portal.png?raw=true">
 
-Make sure you fill the `contact_info.json` file. It is required to create domain name.
+Make sure you fill the `contact_info.json` file. It is required to create domain name. More details here: https://learn.microsoft.com/en-us/cli/azure/appservice/domain?view=azure-cli-latest#az-appservice-domain-create
 
 ```sh
 az group create -n rg-dns-domain -l westeurope -o table
