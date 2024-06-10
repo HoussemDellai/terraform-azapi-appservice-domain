@@ -41,7 +41,7 @@ resource "azurerm_resource_group" "rg" {
 
 # DNS Zone to configure the domain name
 resource "azurerm_dns_zone" "dns_zone" {
-  name                = var.domain_name
+  name                = var.custom_domain_name
   resource_group_name = azurerm_resource_group.rg.name
 }
 
