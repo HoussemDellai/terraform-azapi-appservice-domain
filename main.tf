@@ -1,19 +1,19 @@
 # App Service Domain
 # REST API reference: https://docs.microsoft.com/en-us/rest/api/appservice/domains/createorupdate
 resource "azapi_resource" "appservice_domain" {
-  type                      = "Microsoft.DomainRegistration/domains@2022-09-01"
+  type                      = "Microsoft.DomainRegistration/domains@2024-04-01"
   name                      = var.custom_domain_name
   parent_id                 = var.resource_group_id
   location                  = "global"
   schema_validation_enabled = true
   response_export_values    = ["*"] # ["id", "name", "properties.nameServers"]
 
-  body = jsonencode({
+  body = {
 
     properties = {
-      autoRenew = false
       dnsType   = "AzureDns"
       dnsZoneId = var.dns_zone_id
+      autoRenew = false
       privacy   = false
 
       consent = {
@@ -82,5 +82,5 @@ resource "azapi_resource" "appservice_domain" {
         }
       }
     }
-  })
+  }
 }
