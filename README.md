@@ -149,3 +149,7 @@ MSDN/VisualStudio and Free Azure subscriptions doesn't work.
 
 Within the terraform config file, you can change the contact info for the contactAdmin, contactRegistrant, contactBilling and contactTech.
 It worked for me when reusing the same contact !
+
+## Module available in Terraform registry
+
+The module is available in Terraform registry: [https://registry.terraform.io/modules/HoussemDellai/appservice-domain/azapi/latest](https://registry.terraform.io/modules/HoussemDellai/appservice-domain/azapi/latest)

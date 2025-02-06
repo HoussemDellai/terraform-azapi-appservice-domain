@@ -1,7 +1,7 @@
 module "appservice_domain" {
-  source = "../."                                    # if calling module from local machine
-  # source  = "HoussemDellai/appservice-domain/azapi" # if calling module from Terraform Registry
-  # version = "1.0.2"                                 # if calling module from Terraform Registry
+  # source = "../."                                    # if calling module from local machine
+  source  = "HoussemDellai/appservice-domain/azapi" # if calling module from Terraform Registry
+  version = "2.0.0"                                 # if calling module from Terraform Registry
 
   custom_domain_name = var.custom_domain_name
   resource_group_id  = azurerm_resource_group.rg.id
