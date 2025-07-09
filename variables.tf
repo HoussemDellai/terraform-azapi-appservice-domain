@@ -42,11 +42,11 @@ variable "contact" {
     nameFirst = "John"
     nameLast  = "Doe"
     email     = "john.doe@example.com"
-    phone     = "+1234567890"
+    phone     = "+1.762954328"
     addressMailing = {
       address1   = "123 Main St"
-      city       = "Anytown"
-      state      = "Anystate"
+      city       = "New York"
+      state      = "New York"
       country    = "US"
       postalCode = "12345"
     }
