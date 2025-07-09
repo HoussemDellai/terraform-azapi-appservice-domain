@@ -38,4 +38,17 @@ variable "contact" {
       postalCode = string
     })
   })
+  default = {
+    nameFirst = "John"
+    nameLast  = "Doe"
+    email     = "john.doe@example.com"
+    phone     = "+1234567890"
+    addressMailing = {
+      address1   = "123 Main St"
+      city       = "Anytown"
+      state      = "Anystate"
+      country    = "US"
+      postalCode = "12345"
+    }
+  }
 }

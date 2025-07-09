@@ -2,28 +2,27 @@
 
 ## Problem
 
-You can create a custom domain name in Azure using App Service Domain service.
-You can do that using Azure portal or Azure CLI.
-But you cannot do that using Terraform for Azure provider.
-Because that is not implemented yet.
-Creating a custom domain in infra as code tool like Terraform might not be that much appealing for enterprises.
-They would purchase their domain name manually, just once. Infra as code doesn't make lots of sense here.
+You can create a custom domain name in Azure using the `App Service Domain` service, either through the Azure Portal or the Azure CLI. However, this capability is not yet supported in the Azure Terraform provider.
 
-However for labs, workshops and demonstrations, this is very useful to make the lab more realistic.
+For most enterprises, managing domain names through Infrastructure as Code (IaC) tools like `Terraform` may not be a priority. Domains are typically purchased manually, as it's a one-time task that doesn't benefit much from automation.
+
+That said, for labs, workshops, and demos, being able to automate domain creation can add a layer of realism and completeness to the environment. In those contexts, having this feature available would be quite valuable.
 
 ## Solution
 
-We'll provide a Terraform implementation for creating a custom domain name using Azure App Service Domain.
-We'll use `AzApi` provider to create the resource. More info about AzApi here: https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource.
+In this implementation, we demonstrate how to create a custom domain name in Azure using Terraform, leveraging the Azure App Service Domain via the AzApi provider.
 
-The AzApi will call the REST API and pass the required JSON file containing the needed attributes.
-Take a look at the REST API for App Service Domain here: https://learn.microsoft.com/en-us/rest/api/appservice/domains/create-or-update
+Since this capability is not yet available in the official Azure Terraform provider, we use the AzApi provider to interact directly with the Azure REST API. You can find more details about the azapi_resource here:
+🔗 [AzApi Resource Documentation](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource)
 
-We also create an Azure DNS Zone to manage and configure the domain name.
+The AzApi provider allows us to send a REST API call along with a JSON payload containing the required attributes. For reference, here is the REST API used to create or update an App Service Domain:
+🔗 [App Service Domain REST API](https://learn.microsoft.com/en-us/rest/api/appservice/domains/create-or-update)
 
-And we create an A record "test" to make sure the configuration works.
+In addition to the domain creation, we also provision:
 
-The complete Terraform implementation is in this current folder.
+An Azure DNS Zone to manage and configure the domain.
+An A record named test to validate the DNS setup and ensure everything is working as expected.
+The complete Terraform configuration is available in this folder.
 
 ## Video tutorial
 
@@ -65,23 +64,6 @@ module "appservice_domain" {
   custom_domain_name = var.custom_domain_name
   resource_group_id  = azurerm_resource_group.rg.id
   dns_zone_id        = azurerm_dns_zone.dns_zone.id
-
-  agreedby_ip_v6    = "2a04:cec0:11d9:24c8:8898:3820:8631:d83"
-  agreedat_datetime = "2024-01-01T9:00:00.000Z"
-
-  contact = {
-    nameFirst = "FirstName"
-    nameLast  = "LastName"
-    email     = "youremail@email.com" # you might get verification email
-    phone     = "+33.762954328"
-    addressMailing = {
-      address1   = "1 Microsoft Way"
-      city       = "Redmond"
-      state      = "WA"
-      country    = "US"
-      postalCode = "98052"
-    }
-  }
 }
 
 variable "custom_domain_name" {
@@ -144,7 +126,7 @@ az appservice domain create `
 
 ## Important notes
 
-You should use a Pay-As-You-Go azure subscription to be able to create Azure App Service Domain.
+You should use a `Pay-As-You-Go` azure subscription to be able to create Azure App Service Domain.
 MSDN/VisualStudio and Free Azure subscriptions doesn't work.
 
 Within the terraform config file, you can change the contact info for the contactAdmin, contactRegistrant, contactBilling and contactTech.
